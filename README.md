@@ -1,5 +1,7 @@
 # Donut chart ReactJs component
 
+![donut chart](donutchart.png)
+
 Easy to customize, just provide an array of objects as props.
 
 ## Example:
