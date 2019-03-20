@@ -1,9 +1,5 @@
 # Donut chart ReactJs component
 
-Easy to customize, just provide an array of objects.
-example:
-`# Donut chart ReactJs component
-
 Easy to customize, just provide an array of objects as props.
 example:
 
