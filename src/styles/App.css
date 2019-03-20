@@ -41,9 +41,7 @@ h3 {
 
 .chart {
   width: 600px;
-  height: 400px;
   max-width: 600px;
-  max-height: 400px;
   margin: 10px auto;
   border-radius: 10px;
   background-color: #ffffff;
