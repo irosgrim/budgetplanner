@@ -7,7 +7,10 @@ Easy to customize, just provide an array of objects as props.
 ```javascript
 <Donutchart chartfrom={donutChart} />;
 /*
-budget: 1000 - 100% is set by the budget amount. If budget is 0 or smaller than the total of the items, the 100% will be proportionally divided to the items based on their amount.
+budget: 1000 - 100% is set by the budget amount. 
+If budget is 0 or smaller than the total of the items, 
+the 100% will be proportionally divided 
+to the items based on their amount.
 
 baseColor: '#dadada' - base circle color
 thickness: '5' - donut thickness
