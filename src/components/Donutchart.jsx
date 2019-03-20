@@ -105,10 +105,11 @@ class Donutchart extends Component {
 								<li
 									key={index}
 									style={{ display: 'flex', alignItems: 'center' }}>
-									<div className="thin">
+									<div
+										className="thin"
+										style={{ display: 'flex', alignItems: 'center' }}>
 										<div
 											style={{
-												float: 'left',
 												height: '10px',
 												width: '10px',
 												marginRight: '10px',
