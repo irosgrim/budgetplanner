@@ -58,8 +58,6 @@ class Donutchart extends Component {
 			}
 		}
 
-		console.log(this.props.chartfrom.items[0].amount);
-
 		const circles = sections.map((circle, index) => {
 			return (
 				<circle
@@ -85,46 +83,18 @@ class Donutchart extends Component {
 		const total = (tot, current_val) => {
 			return (tot += current_val);
 		};
-
-		return (
-			<div className="donut-chart">
-				<svg width="100%" height="100%" viewBox="0 0 42 42" className="donut">
-					<circle
-						className="donut-hole"
-						cx="21"
-						cy="21"
-						r="15.91549430918954"
-						fill={holeColor}
-					/>
-					<circle
-						className="donut-ring base"
-						cx="21"
-						cy="21"
-						r="15.91549430918954"
-						fill="transparent"
-						stroke={baseColor}
-						strokeWidth={thickness}
-					/>
-					{circles}
-
-					<g className="main-label">
-						<text x="50%" y="50%" dx="-1px">
-							{/* this.props.chartfrom.budget < amountarr.reduce(total)
-								? amountarr.reduce(total)
-								: this.props.chartfrom.budget */}
-						</text>
-					</g>
-				</svg>
+		const infobox = () => {
+			return (
 				<div className="info">
 					<ul className="info-list" style={{ listStyleType: 'none' }}>
 						<li>
 							<h3>
 								{this.props.title}
 								{/* this.props.chartfrom.budget < amountarr.reduce(total)
-									? amountarr.reduce(total)
-									: amountarr.reduce(total) +
-									  ' out of ' +
-									  this.props.chartfrom.budget */}
+						? amountarr.reduce(total)
+						: amountarr.reduce(total) +
+						  ' out of ' +
+						  this.props.chartfrom.budget */}
 							</h3>
 							<div style={{ fontWeight: '500' }}>
 								{this.props.chartfrom.budget || ''}
@@ -154,9 +124,9 @@ class Donutchart extends Component {
 									</div>
 
 									{/* +
-										' ' +
-										this.props.chartfrom.items[index].amount +
-										` (${item.amount.split(' ')[0]}%)` */}
+							' ' +
+							this.props.chartfrom.items[index].amount +
+							` (${item.amount.split(' ')[0]}%)` */}
 								</li>
 							);
 						})}
@@ -184,6 +154,43 @@ class Donutchart extends Component {
 						</li>
 					</ul>
 				</div>
+			);
+		};
+		return (
+			<div className="donut-chart">
+				{this.props.infoposition === 'left' && infobox()}
+				<svg width="100%" height="100%" viewBox="0 0 42 42" className="donut">
+					<circle
+						className="donut-hole"
+						cx="21"
+						cy="21"
+						r="15.91549430918954"
+						fill={holeColor}
+					/>
+					<circle
+						className="donut-ring base"
+						cx="21"
+						cy="21"
+						r="15.91549430918954"
+						fill="transparent"
+						stroke={baseColor}
+						strokeWidth={thickness}
+					/>
+					{circles}
+
+					<g className="main-label">
+						<text x="50%" y="50%" dx="-1px">
+							{/* this.props.chartfrom.budget < amountarr.reduce(total)
+								? amountarr.reduce(total)
+								: this.props.chartfrom.budget */}
+						</text>
+					</g>
+				</svg>
+				{(this.props.infoposition === 'right' ||
+					this.props.infoposition === ' ' ||
+					this.props.infoposition === undefined ||
+					this.props.infoposition === null) &&
+					infobox()}
 			</div>
 		);
 	}
