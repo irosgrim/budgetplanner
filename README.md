@@ -6,7 +6,8 @@ example:
 
 Easy to customize, just provide an array of objects.
 example:
-`const donutChart2 = {
+```javascript
+const donutChart2 = {
 			budget: 10000, //percentage of each item will be based on this number if set and if it's greater than the total of items
 			baseColor: '#dadada', //this is the base circle
 			thickness: '5', // circle thickness
@@ -37,7 +38,7 @@ example:
 					startFrom: 0
 				}
 			]
-		};`
+		};```
 
 ## Available Scripts
 
