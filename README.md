@@ -1,7 +1,8 @@
 # Donut chart ReactJs component
 
 Easy to customize, just provide an array of objects as props.
-example:
+
+## Example:
 
 ```javascript
 <Donutchart chartfrom={donutChart} />;
