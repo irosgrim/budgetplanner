@@ -5,8 +5,11 @@ Easy to customize, just provide an array of objects as props.
 ## Example:
 
 ```javascript
-<Donutchart chartfrom={donutChart} />;
+<Donutchart chartfrom={budget} title="Budget" infoposition="left" />;
 /*
+infoposition="left" - it can be left, right or none. If empty or undefined, it will position 
+infobox on theright
+
 budget: 1000 - 100% is set by the budget amount. 
 If budget is 0 or smaller than the total of the items, 
 the 100% will be proportionally divided 
