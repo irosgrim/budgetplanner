@@ -4,10 +4,13 @@ Easy to customize, just provide an array of objects.
 example:
 `# Donut chart ReactJs component
 
-Easy to customize, just provide an array of objects.
+Easy to customize, just provide an array of objects as props.
 example:
-```javascript
-const donutChart2 = {
+
+````javascript
+<Donutchart chartfrom={donutChart} />
+
+const donutChart = {
 			budget: 10000, //percentage of each item will be based on this number if set and if it's greater than the total of items
 			baseColor: '#dadada', //this is the base circle
 			thickness: '5', // circle thickness
@@ -56,3 +59,4 @@ const donutChart2 = {
 ### `npm test`
 
 ### `npm run build`
+````
