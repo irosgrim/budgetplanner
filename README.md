@@ -52,16 +52,6 @@ const donutChart = {
 
 ### `npm run build`
 
-`
-
-## Available Scripts
-
-### `npm start`
-
-### `npm test`
-
-### `npm run build`
-
 ```
 
 ```
