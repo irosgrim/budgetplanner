@@ -41,7 +41,8 @@ const donutChart = {
 					startFrom: 0
 				}
 			]
-		};```
+		};
+```
 
 ## Available Scripts
 
