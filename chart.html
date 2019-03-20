@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="style/main.css" />
+		<title>Charts</title>
+	</head>
+	<body>
+		<div class="donut-chart">
+			<svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+				<circle
+					class="donut-hole"
+					cx="21"
+					cy="21"
+					r="15.91549430918954"
+					fill="#ffffff"
+				></circle>
+				<circle
+					class="donut-ring"
+					cx="21"
+					cy="21"
+					r="15.91549430918954"
+					fill="transparent"
+					stroke="#eaeaea"
+					stroke-width="5"
+				></circle>
+				<circle
+					class="donut-segment"
+					cx="21"
+					cy="21"
+					r="15.91549430918954"
+					fill="transparent"
+					stroke="#ce4b99"
+					stroke-width="5"
+					stroke-dasharray="20 80"
+					stroke-dashoffset="25"
+				></circle>
+				<!--
+                    Second circle: 
+                    Circumference − All preceding segments’ total length + First segment’s offset = Current segment offset
+Plugging in our numbers, we have:
+
+100 − 20 + 25 = 105-->
+				<circle
+					class="donut-segment"
+					cx="21"
+					cy="21"
+					r="15.91549430918954"
+					fill="transparent"
+					stroke="#27a027"
+					stroke-width="5"
+					stroke-dasharray="20 80"
+					stroke-dashoffset="105"
+				></circle>
+				<!--Formula: 100 - stroke-dasharray[0] + previousCircle.strokeDashoffset - -->
+				<circle
+					class="donut-segment"
+					cx="21"
+					cy="21"
+					r="15.91549430918954"
+					fill="transparent"
+					stroke="#7878c9"
+					stroke-width="5"
+					stroke-dasharray="50 50"
+					stroke-dashoffset="185"
+				></circle>
+				<circle
+					class="donut-segment"
+					cx="21"
+					cy="21"
+					r="15.91549430918954"
+					fill="transparent"
+					stroke="yellow"
+					stroke-width="5"
+					stroke-dasharray="5 95"
+					stroke-dashoffset="235"
+				></circle>
+				<g class="chart-label">
+					<text x="50%" y="50%">Budget</text>
+				</g>
+			</svg>
+		</div>
+	</body>
+</html>
