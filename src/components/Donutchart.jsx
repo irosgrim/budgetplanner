@@ -109,44 +109,78 @@ class Donutchart extends Component {
 
 					<g className="main-label">
 						<text x="50%" y="50%" dx="-1px">
-							{this.props.chartfrom.budget < amountarr.reduce(total)
+							{/* this.props.chartfrom.budget < amountarr.reduce(total)
 								? amountarr.reduce(total)
-								: this.props.chartfrom.budget}
+								: this.props.chartfrom.budget */}
 						</text>
 					</g>
 				</svg>
 				<div className="info">
 					<ul className="info-list" style={{ listStyleType: 'none' }}>
+						<li>
+							<h3>
+								{this.props.title}
+								{/* this.props.chartfrom.budget < amountarr.reduce(total)
+									? amountarr.reduce(total)
+									: amountarr.reduce(total) +
+									  ' out of ' +
+									  this.props.chartfrom.budget */}
+							</h3>
+							<div style={{ fontWeight: '500' }}>
+								{this.props.chartfrom.budget || ''}
+							</div>
+						</li>
 						{sections.map((item, index) => {
 							return (
 								<li
 									key={index}
 									style={{ display: 'flex', alignItems: 'center' }}>
-									<div
-										style={{
-											float: 'left',
-											height: '10px',
-											width: '10px',
-											marginRight: '10px',
-											borderRadius: ' 3px',
-											backgroundColor: item.sectionColor
-										}}
-									/>
+									<div className="thin">
+										<div
+											style={{
+												float: 'left',
+												height: '10px',
+												width: '10px',
+												marginRight: '10px',
+												borderRadius: ' 3px',
+												backgroundColor: item.sectionColor
+											}}
+										/>
+										{item.label}
+									</div>
 
-									{item.label +
+									<div className="bold">
+										{this.props.chartfrom.items[index].amount}
+									</div>
+
+									{/* +
 										' ' +
 										this.props.chartfrom.items[index].amount +
-										` (${item.amount.split(' ')[0]}%)`}
+										` (${item.amount.split(' ')[0]}%)` */}
 								</li>
 							);
 						})}
-						<li style={{ display: 'flex', alignItems: 'center' }}>
-							TOTAL:{' '}
-							{this.props.chartfrom.budget < amountarr.reduce(total)
-								? amountarr.reduce(total)
-								: amountarr.reduce(total) +
-								  ' out of ' +
-								  this.props.chartfrom.budget}
+						<li
+							style={{
+								display: 'flex',
+								alignItems: 'center',
+								borderTop: '1px solid #eaeaea',
+								paddingTop: '5px',
+								marginTop: '5px'
+							}}>
+							<div>
+								<div
+									style={{
+										float: 'left',
+										height: '10px',
+										width: '10px',
+										marginRight: '10px',
+										borderRadius: ' 3px'
+									}}
+								/>
+								TOTAL:
+							</div>
+							<div>{amountarr.reduce(total)}</div>
 						</li>
 					</ul>
 				</div>

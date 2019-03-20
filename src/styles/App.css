@@ -1,3 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
 .App {
   display: flex;
   justify-content: space-between;
@@ -12,7 +28,6 @@
   font-size: 0.2rem;
   text-align: center;
   font-weight: 400;
-  border: 1px solid red;
   transform: translate(-0.20rem, 0.05rem);
 }
 
@@ -23,8 +38,14 @@
 }
 
 .chart {
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 400px;
+  max-width: 600px;
+  max-height: 400px;
+  margin: 10px auto;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0px 10px 19px 0px rgba(0, 0, 0, 0.23);
 }
 
 .donut {
@@ -33,9 +54,22 @@
 
 .info {
   flex: 1;
+  min-width: 200px;
   text-align: left;
+  padding: 10px;
 }
 
 .info-list {
   padding: 0;
+}
+
+.info-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.thin {
+  font-weight: 200;
 }
