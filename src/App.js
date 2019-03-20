@@ -46,7 +46,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<div className="chart">
-					<Donutchart chartfrom={budget} title="Budget" infoposition="left" />
+					<Donutchart chartfrom={budget} title="Budget" infoposition="right" />
 				</div>
 			</div>
 		);
