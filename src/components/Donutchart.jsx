@@ -1,20 +1,9 @@
 import React, { Component } from 'react';
 
-/* 
-Inspired by: https://medium.com/@heyoka/scratch-made-svg-donut-pie-charts-in-html5-2c587e935d72 by Mark Caron
-
-Each circle strokeDashoffset depends on the previous circle and can be calculated like this:
-Circumference - previous_circle_length + previous_circle_strokeDashoffset
-
-                100 - stroke-dasharray[0] + previousCircle.strokeDashoffset
-
-*/
 class Donutchart extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			info: 'food'
-		};
+
 		this.handleSectionSize = this.handleSectionSize.bind(this);
 	}
 
@@ -69,7 +58,7 @@ class Donutchart extends Component {
 					r="15.91549430918954"
 					fill="transparent"
 					stroke={circle.sectionColor}
-					strokeWidth="5"
+					strokeWidth={this.props.chartfrom.thickness}
 					strokeDasharray={circle.amount}
 					strokeDashoffset={circle.startFrom}
 				/>
@@ -158,7 +147,15 @@ class Donutchart extends Component {
 			);
 		};
 		return (
-			<div className="donut-chart">
+			<div
+				className="donut-chart"
+				style={{
+					display: 'flex',
+					flexDirection:
+						this.props.infoposition === 'bottom' ? 'column' : 'row',
+					justifyContent: 'center',
+					alignItems: 'flex-end'
+				}}>
 				{this.props.infoposition === 'left' && infobox()}
 				<svg width="100%" height="100%" viewBox="0 0 42 42" className="donut">
 					<circle
@@ -190,7 +187,8 @@ class Donutchart extends Component {
 				{(this.props.infoposition === 'right' ||
 					this.props.infoposition === ' ' ||
 					this.props.infoposition === undefined ||
-					this.props.infoposition === null) &&
+					this.props.infoposition === null ||
+					this.props.infoposition === 'bottom') &&
 					infobox()}
 			</div>
 		);

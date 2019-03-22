@@ -1,53 +1,99 @@
 import React, { Component } from 'react';
 import Donutchart from './components/Donutchart';
+import Modal from './components/Modal';
+import List from './components/List';
+
+import Threedotsbtn from './components/Threedotsbtn';
+import Additem from './components/Additem';
 import './styles/App.css';
+const colorList = [
+	'#D0021B',
+	'#F5A623',
+	'#F8E71C',
+	'#8B572A',
+	'#7ED321',
+	'#417505',
+	'#BD10E0',
+	'#9013FE',
+	'#4A90E2',
+	'#50E3C2',
+	'#B8E986',
+	'#4A4A4A',
+	'#9B9B9B',
+	'#EF0ACF',
+	'#00AA80',
+	'#AB5B09'
+];
 
 class App extends Component {
-	render() {
-		const budget = {
+	constructor() {
+		super();
+		this.handleToggleColorPalette = this.handleToggleColorPalette.bind(this);
+		this.handleShowModal = this.handleShowModal.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.state = {
+			title: 'Budget',
 			budget: 22000,
-			baseColor: '#e8e8e8', //this is the 100% base circle
-			thickness: '5', // circle size
-			holeColor: 'transparent', //the hole is transparent but it can be any color ex #ffffff
+			baseColor: '#e8e8e8',
+			thickness: '5',
+			holeColor: 'transparent',
 			items: [
 				{
-					label: 'Food', //label of the item
-					sectionColor: '#8acc81', //color of the sections
-					amount: 8500, //value of the section
-					startFrom: 25 //first item should always have a startFrom value > 0, next items will have a startFrom 0
-				},
-				{
-					label: 'Bank',
-					sectionColor: '#e77d53',
-					amount: 5500,
-					startFrom: 0
-				},
-				{
-					label: 'Electricity',
-					sectionColor: '#bd53e7',
-					amount: 750,
-					startFrom: 0
-				},
-				{
-					label: 'Water',
-					sectionColor: '#6ea4b4',
-					amount: 558,
-					startFrom: 0
-				},
-				{
-					label: 'Other stuff',
-					sectionColor: '#e7b853',
-					amount: 1500,
-					startFrom: 0
+					label: 'Food',
+					sectionColor: '#8acc81',
+					amount: 8500,
+					startFrom: 25
 				}
-			]
-		};
+			],
 
+			showColorPalette: false,
+			showModal: false
+		};
+	}
+
+	handleSubmit(e) {
+		console.log(e);
+
+		const newEntry = {
+			label: e.entry,
+			sectionColor: e.color,
+			amount: Number(e.amount),
+			startFrom: 0
+		};
+		this.setState({ items: [...this.state.items, newEntry], showModal: false });
+	}
+	handleToggleColorPalette() {
+		this.setState(prevState => ({
+			showColorPalette: !prevState.showColorPalette
+		}));
+	}
+	handleShowModal() {
+		this.setState(prevState => ({
+			showModal: !prevState.showModal
+		}));
+	}
+	render() {
 		return (
 			<div className="App">
+				{this.state.showModal && (
+					<Modal
+						handletogglecolorpalette={this.handleToggleColorPalette}
+						showcolorpalette={this.state.showColorPalette}
+						colorlist={colorList}
+						handleshowmodal={this.handleShowModal}
+						handlesubmit={this.handleSubmit}
+					/>
+				)}
+				<Additem handleshowmodal={this.handleShowModal} />
+				<Threedotsbtn />
 				<div className="chart">
-					<Donutchart chartfrom={budget} title="Budget" infoposition="right" />
+					<Donutchart
+						chartfrom={this.state}
+						title="Budget"
+						infoposition="none"
+					/>
 				</div>
+				<List budget={this.state} />
 			</div>
 		);
 	}
