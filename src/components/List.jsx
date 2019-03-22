@@ -43,19 +43,11 @@ class List extends Component {
 							</li>
 						);
 					})}
-					<li className="list-item list-total">
-						<div className="list-item-wrapper">
-							<div
-								style={{
-									width: '20px',
-									height: '20px'
-								}}
-							/>
-							<div className="item bold">TOTAL</div>
-						</div>
-						<div className="bold">{amountarr.reduce(total)}</div>
-					</li>
 				</ul>
+				<div className="list-total">
+					<div className="item bold">TOTAL</div>
+					<div className="bold">{amountarr.reduce(total)}</div>
+				</div>
 			</div>
 		);
 	}

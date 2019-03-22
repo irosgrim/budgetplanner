@@ -3,7 +3,7 @@ import React from 'react';
 function Colorpalette(props) {
 	return (
 		<div className="color-palette">
-			{props.colorlist.map((color, index) => {
+			{props.filteredcolors.map((color, index) => {
 				return (
 					<div
 						key={index}

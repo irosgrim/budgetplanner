@@ -24,13 +24,13 @@ const colorList = [
 	'#00AA80',
 	'#AB5B09'
 ];
-
 class App extends Component {
 	constructor() {
 		super();
 		this.handleToggleColorPalette = this.handleToggleColorPalette.bind(this);
 		this.handleShowModal = this.handleShowModal.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleShowSettings = this.handleShowSettings.bind(this);
 		this.state = {
 			title: 'Budget',
 			budget: 22000,
@@ -39,28 +39,61 @@ class App extends Component {
 			holeColor: 'transparent',
 			items: [
 				{
-					label: 'Food',
-					sectionColor: '#8acc81',
-					amount: 8500,
+					label: '',
+					sectionColor: '',
+					amount: null,
 					startFrom: 25
 				}
 			],
-
+			chosenColors: [],
 			showColorPalette: false,
-			showModal: false
+			showModal: false,
+			showSettings: false
 		};
 	}
-
+	handleShowSettings() {
+		this.setState(prevState => ({
+			showSettings: !prevState.showSettings
+		}));
+	}
 	handleSubmit(e) {
 		console.log(e);
-
+		const capitalizeLabel =
+			e.entry.charAt(0).toUpperCase() + e.entry.toLowerCase().substring(1);
 		const newEntry = {
-			label: e.entry,
+			label: capitalizeLabel,
 			sectionColor: e.color,
 			amount: Number(e.amount),
 			startFrom: 0
 		};
-		this.setState({ items: [...this.state.items, newEntry], showModal: false });
+		e.entry !== '' && e.color !== '' && e.amount !== '' && e.amount !== 0
+			? this.setState({
+					items: [...this.state.items, newEntry],
+					chosenColors: [...this.state.chosenColors, e.color],
+					showModal: false,
+					showColorPalette: false
+			  })
+			: this.setState({ showModal: false });
+
+		if (
+			this.state.items.length === 1 &&
+			this.state.items[0].label === '' &&
+			this.state.items[0].amount === null
+		) {
+			this.setState({
+				items: [
+					{
+						label: capitalizeLabel,
+						sectionColor: e.color,
+						amount: Number(e.amount),
+						startFrom: 25
+					}
+				],
+				chosenColors: [...this.state.chosenColors, e.color],
+				showModal: false,
+				showColorPalette: false
+			});
+		}
 	}
 	handleToggleColorPalette() {
 		this.setState(prevState => ({
@@ -73,6 +106,9 @@ class App extends Component {
 		}));
 	}
 	render() {
+		const filtered = colorList.filter(color => {
+			return !this.state.chosenColors.includes(color);
+		});
 		return (
 			<div className="App">
 				{this.state.showModal && (
@@ -80,12 +116,18 @@ class App extends Component {
 						handletogglecolorpalette={this.handleToggleColorPalette}
 						showcolorpalette={this.state.showColorPalette}
 						colorlist={colorList}
+						chosencolors={this.state.chosenColors}
 						handleshowmodal={this.handleShowModal}
 						handlesubmit={this.handleSubmit}
+						filteredcolors={filtered}
 					/>
 				)}
+
 				<Additem handleshowmodal={this.handleShowModal} />
-				<Threedotsbtn />
+				<Threedotsbtn
+					showsettings={this.state.showSettings}
+					handleshowsettings={this.handleShowSettings}
+				/>
 				<div className="chart">
 					<Donutchart
 						chartfrom={this.state}

@@ -157,7 +157,16 @@ class Donutchart extends Component {
 					alignItems: 'flex-end'
 				}}>
 				{this.props.infoposition === 'left' && infobox()}
-				<svg width="100%" height="100%" viewBox="0 0 42 42" className="donut">
+				<svg
+					width="100%"
+					height="100%"
+					viewBox="0 0 42 42"
+					className="donut"
+					style={{
+						strokeWidth: '0px',
+						backgroundImage:
+							'linear-gradient(-180deg, #E7F6FA 20%, #FFFFFF 55%)'
+					}}>
 					<circle
 						className="donut-hole"
 						cx="21"

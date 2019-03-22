@@ -8,10 +8,13 @@ class Modal extends Component {
 		this.handleOnChange = this.handleOnChange.bind(this);
 		this.handleSelectedColor = this.handleSelectedColor.bind(this);
 		this.state = {
-			entry: 'entry',
-			amount: 666,
-			color: 'red'
+			entry: '',
+			amount: null,
+			color: '#D0021B'
 		};
+	}
+	componentDidMount() {
+		this.setState({ color: this.props.filteredcolors[0] });
 	}
 	handleSelectedColor(e) {
 		console.log(e);
@@ -50,6 +53,7 @@ class Modal extends Component {
 							<input
 								type="text"
 								name="newitem"
+								placeholder="Title"
 								onChange={this.handleOnChange}
 							/>
 						</div>
@@ -57,6 +61,7 @@ class Modal extends Component {
 							<input
 								type="number"
 								name="newvalue"
+								placeholder="value"
 								onChange={this.handleOnChange}
 							/>
 						</div>
@@ -66,6 +71,7 @@ class Modal extends Component {
 						<Colorpalette
 							colorlist={this.props.colorlist}
 							selectedcolor={this.handleSelectedColor}
+							filteredcolors={this.props.filteredcolors}
 						/>
 					)}
 					<div className="submit-wrapper">
