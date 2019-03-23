@@ -33,6 +33,7 @@ class Setup extends Component {
 						<div className="input-wrapper">
 							<p>Title</p>
 							<input
+								autoComplete="off"
 								type="text"
 								name="title"
 								placeholder="title"
@@ -42,6 +43,7 @@ class Setup extends Component {
 						<div className="input-wrapper">
 							<p>Total</p>
 							<input
+								autoComplete="off"
 								type="text"
 								name="total"
 								placeholder="total budget"
@@ -51,6 +53,7 @@ class Setup extends Component {
 						<div className="input-wrapper">
 							<p>Data type</p>
 							<input
+								autoComplete="off"
 								type="text"
 								name="datatype"
 								placeholder="total budget"
@@ -61,6 +64,7 @@ class Setup extends Component {
 						<div className="input-wrapper">
 							<p>Base color</p>
 							<input
+								autoComplete="off"
 								type="text"
 								name="basecolor"
 								placeholder="#e8e8e8"

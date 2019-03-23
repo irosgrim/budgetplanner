@@ -21,7 +21,11 @@ function Threedotsbtn(props) {
 				<div className="dot" />
 			</div>
 			{props.showsettings && (
-				<Settings handleshowsettings={props.handleshowsettings} />
+				<Settings
+					handleshowsettings={props.handleshowsettings}
+					settings={props.settings}
+					handlesubmitsettings={props.handlesubmitsettings}
+				/>
 			)}
 		</div>
 	);

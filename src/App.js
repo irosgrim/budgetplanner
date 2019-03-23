@@ -177,6 +177,14 @@ class App extends Component {
 				<Threedotsbtn
 					showsettings={this.state.showSettings}
 					handleshowsettings={this.handleShowSettings}
+					settings={{
+						title: this.state.title,
+						dataType: this.state.dataType,
+						total: this.state.budget,
+						basecolor: this.state.baseColor,
+						thickness: this.state.thickness
+					}}
+					handlesubmitsettings={this.handleSubmitSetup}
 				/>
 				<div className="chart">
 					<div className="chart-infobox">

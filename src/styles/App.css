@@ -326,18 +326,18 @@ input::placeholder {
   background-color: #edf1f5;
 }
 
-.settings-window ul li input {
-  width: 120px;
-  height: 20px;
+.settings-window input {
+  height: 30px;
   font-size: 1rem;
   font-weight: 200;
   margin-left: 15px;
-  border: none;
+  border-radius: 3px;
+  border: 1px solid #D0E0E5;
 }
 
-.settings-window ul li input:focus {
+.settings-window input:focus {
   outline: none;
-  border-bottom: 2px solid #d4783a;
+  border: 1px solid #4F8593;
 }
 
 .chart-infobox {
