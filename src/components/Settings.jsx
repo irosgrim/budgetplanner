@@ -5,21 +5,11 @@ export default class Settings extends Component {
 		return (
 			<div className="settings-window">
 				<ul>
-					<li>
-						Title: <input type="text" />
-					</li>
-					<li>
-						Total amount: <input type="text" />
-					</li>
-					<li>
-						Chart thickness: <input type="text" />
-					</li>
-					<li>
-						Base color: <input type="text" />
-					</li>
-					<li>
-						Hole color: <input type="text" />
-					</li>
+					<li>Title</li>
+					<li>Total amount</li>
+					<li>Chart thickness</li>
+					<li>Base color</li>
+					<li>Hole color</li>
 				</ul>
 				<div className="submit-wrapper">
 					<div className="submit-btn" onClick={this.props.handleshowsettings}>

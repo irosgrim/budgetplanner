@@ -1,45 +1,45 @@
 {
-  "name": "budgetplanner",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "http://.",
-  "dependencies": {
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
-  "description": "![donut chart](donutchart.png)",
-  "main": "index.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/irosgrim/budgetplanner.git"
-  },
-  "keywords": [
-    "budget",
-    "planner",
-    "donut",
-    "chart",
-    "chart"
-  ],
-  "author": "ion rosgrim",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/irosgrim/budgetplanner/issues"
-  }
+	"name": "budgetplanner",
+	"version": "0.1.0",
+	"private": true,
+	"homepage": ".",
+	"dependencies": {
+		"react": "^16.8.4",
+		"react-dom": "^16.8.4",
+		"react-scripts": "2.1.8"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not ie <= 11",
+		"not op_mini all"
+	],
+	"description": "![donut chart](donutchart.png)",
+	"main": "index.js",
+	"devDependencies": {},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/irosgrim/budgetplanner.git"
+	},
+	"keywords": [
+		"budget",
+		"planner",
+		"donut",
+		"chart",
+		"chart"
+	],
+	"author": "ion rosgrim",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/irosgrim/budgetplanner/issues"
+	}
 }

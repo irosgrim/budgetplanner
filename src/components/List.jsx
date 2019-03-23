@@ -25,23 +25,27 @@ class List extends Component {
 							/>
 							<div className="item thin">{budget.title}</div>
 						</div>
-						<div className="bold">{budget.budget}</div>
+						<div className="bold">
+							{budget.budget > 0 ? budget.budget : null}
+						</div>
 					</li>
 					{budget.items.map((item, index) => {
-						return (
-							<li key={index} className="list-item">
-								<div className="list-item-wrapper">
-									<div
-										className="color-square"
-										style={{
-											backgroundColor: item.sectionColor
-										}}
-									/>
-									<div className="item thin">{item.label}</div>
-								</div>
-								<div className="bold">{item.amount}</div>
-							</li>
-						);
+						if (item.label !== '') {
+							return (
+								<li key={index} className="list-item">
+									<div className="list-item-wrapper">
+										<div
+											className="color-square"
+											style={{
+												backgroundColor: item.sectionColor
+											}}
+										/>
+										<div className="item thin">{item.label}</div>
+									</div>
+									<div className="bold">{item.amount}</div>
+								</li>
+							);
+						}
 					})}
 				</ul>
 				<div className="list-total">

@@ -157,6 +157,7 @@ class Donutchart extends Component {
 					alignItems: 'flex-end'
 				}}>
 				{this.props.infoposition === 'left' && infobox()}
+
 				<svg
 					width="100%"
 					height="100%"

@@ -39,46 +39,57 @@ class Modal extends Component {
 				}}>
 				<div className="modal-form">
 					<div className="modal-header">
-						<h3>Available</h3>
-						<h3>42</h3>
+						<h3>
+							{this.props.availableamount >= 0
+								? 'Avaialable'
+								: 'Over budget by '}
+						</h3>
+						<h3>
+							{this.props.availableamount >= 0
+								? this.props.availableamount
+								: this.props.availableamount * -1}
+						</h3>
 					</div>
 
-					<form className="entry-form" onSubmit={this.handleSubmit}>
-						<div className="input-frame-entry">
-							<div
-								className="color-square btn"
-								style={{ backgroundColor: this.state.color }}
-								onClick={this.props.handletogglecolorpalette}
-							/>
-							<input
-								type="text"
-								name="newitem"
-								placeholder="Title"
-								onChange={this.handleOnChange}
-							/>
+					<form onSubmit={this.handleSubmit}>
+						<div className="entry-form">
+							<div className="input-frame-entry">
+								<div
+									className="color-square btn"
+									style={{ backgroundColor: this.state.color }}
+									onClick={this.props.handletogglecolorpalette}
+								/>
+								<input
+									type="text"
+									name="newitem"
+									placeholder="Title"
+									onChange={this.handleOnChange}
+								/>
+							</div>
+							<div className="input-frame-amount">
+								<input
+									type="number"
+									name="newvalue"
+									placeholder="value"
+									onChange={this.handleOnChange}
+								/>
+							</div>
 						</div>
-						<div className="input-frame-amount">
-							<input
-								type="number"
-								name="newvalue"
-								placeholder="value"
-								onChange={this.handleOnChange}
+
+						{/* color palette component */}
+						{this.props.showcolorpalette && (
+							<Colorpalette
+								colorlist={this.props.colorlist}
+								selectedcolor={this.handleSelectedColor}
+								filteredcolors={this.props.filteredcolors}
 							/>
+						)}
+						<div className="submit-wrapper">
+							<button className="submit-btn" type="submit">
+								OK
+							</button>
 						</div>
 					</form>
-					{/* color palette component */}
-					{this.props.showcolorpalette && (
-						<Colorpalette
-							colorlist={this.props.colorlist}
-							selectedcolor={this.handleSelectedColor}
-							filteredcolors={this.props.filteredcolors}
-						/>
-					)}
-					<div className="submit-wrapper">
-						<div className="submit-btn" onClick={this.handleSubmit}>
-							OK
-						</div>
-					</div>
 				</div>
 			</div>
 		);
