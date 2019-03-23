@@ -11,6 +11,10 @@ export default class Settings extends Component {
 			holeColorVisible: false
 		};
 		this.onSubmitSettings = this.onSubmitSettings.bind(this);
+		this.handleToggleSettings = this.handleToggleSettings.bind(this);
+	}
+	handleToggleSettings() {
+		return this.props.handleshowsettings();
 	}
 	onSubmitSettings(e) {
 		e.preventDefault();
@@ -21,7 +25,7 @@ export default class Settings extends Component {
 			e.target[3].value,
 			Number(e.target[4].value)
 		];
-
+		this.handleToggleSettings();
 		return this.props.handlesubmitsettings(formValues);
 	}
 	render() {
